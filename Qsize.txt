@@ -1,5 +1,7 @@
 template <class etype>
 int QueueArray<etype>::Qsize(int index){
-  return array[index].size();
+  if(index < 0 || index > sizeof(array)-1){
+    return -1} else {
+    return array[index].size();
+  }
 }
-
