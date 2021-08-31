@@ -1,0 +1,8 @@
+template <class etype>
+int QueueArray<etype>::QAsize(){
+  int sum = 0;
+  for(int i = 0; i < Asize(); i++){
+    sum += Qsize(i);
+      }
+  return sum;
+}
