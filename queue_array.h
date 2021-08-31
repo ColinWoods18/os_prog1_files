@@ -26,10 +26,10 @@ class QueueArray
 
   public:
     QueueArray(int);
-  ~QueueArray(){ delete [] array;};
+    ~QueueArray();
     int Asize(){
-    return sizeof(array);
-}; 
+    return sizeof(array);  
+}
     etype Dequeue();
     int Enqueue(const etype &item,const int index);
     int QAsize(); 
@@ -37,7 +37,7 @@ class QueueArray
     etype* Qstate(int index);
 
   private:
-    int size;      //size of the array
+    int size = 10;      //size of the array
     queue<etype>* array;   //the array of queues.  It must be an array (not a vector)
     int totalItems; //total number of items stored in the queues
 };
@@ -55,5 +55,20 @@ QueueArray<etype>::QueueArray(int sz):size(sz),totalItems(0)
   }
 }
 
+template <class etype>
+QueueArray<etype>::~QueueArray(){
+  delete [] array;
+}
+
+template <class etype>
+int QueueArray<etype>::Enqueue(const etype &item,const int index){
+    if (index > sizeof(array)-1 || index < 0 ){
+      return -1;} else {
+      array[index].push(item);
+      return 1;
+      }
+
+      return 0;
+}
 
 //QueueArray::~QueueArray(){ delete [] array; }

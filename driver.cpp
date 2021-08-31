@@ -13,18 +13,19 @@ using namespace std;
 int main()
 {
   QueueArray <int> qai(5);
-  QueueArray <char> qac(8);
-  int i, r, *ibuf, ielem;
-  char *cbuf, celem;
+  //  QueueArray <char> qac(8);
+  int i, r;
+    //, *ibuf, ielem;
+  //  char *cbuf, celem;
 
 
   cout << "Size of the int queue array is " << qai.Asize()
        << endl;
-  cout << "Total number of elements in the char queue array is "
+  /*  cout << "Total number of elements in the char queue array is "
        << qac.QAsize() << endl;
   
-  cout << endl;
-  for (i = 0; i < 5; i++) {
+       cout << endl;*/
+   for (i = 0; i < 5; i++) {
     r = qai.Enqueue(i, 0);
     cout << "Return value is " << r << endl;
   }
@@ -32,7 +33,7 @@ int main()
   cout << "Return value is " << r << endl;
   for (i = 0; i < 8; i++) qai.Enqueue(7, 2);
   for (i = 0; i < 2; i++) qai.Enqueue(10, 4);
-
+  /*
   cout << "Number of elements in the first queue in int queue array is "
        << qai.Qsize(0) << endl;
   cout << "Number of elements in the second queue in int queue array is "
@@ -102,6 +103,7 @@ int main()
   cout << " Elements in the second queue in char queue array are";
   for (i = 0; i < qac.Qsize(1); i++) cout << " " << cbuf[i];
   cout << endl;
+  */
 
   return 0;
 }

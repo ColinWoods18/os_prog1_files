@@ -1,0 +1,11 @@
+template <class etype>
+int QueueArray<etype>::Enqueue(const etype &item,const int index){
+    if (index > sizeof(array)-1 || index < 0 ){
+      return -1;} else {
+      array[index].push(item);
+      return 1;
+      }
+
+      return 0;
+}
+
