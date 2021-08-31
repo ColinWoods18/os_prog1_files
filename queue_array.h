@@ -27,9 +27,7 @@ class QueueArray
   public:
     QueueArray(int);
     ~QueueArray();
-    int Asize(){
-    return sizeof(array);  
-}
+  int Asize();
     etype Dequeue();
     int Enqueue(const etype &item,const int index);
     int QAsize(); 
@@ -54,6 +52,11 @@ QueueArray<etype>::QueueArray(int sz):size(sz),totalItems(0)
     exit(-1);
   }
 }
+
+template <class etype>
+int QueueArray<etype>::Asize(){
+      return size;
+}  
 
 template <class etype>
 QueueArray<etype>::~QueueArray(){

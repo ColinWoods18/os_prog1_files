@@ -1,0 +1,5 @@
+template <class etype>
+int QueueArray<etype>::Asize(){
+      return size;
+}  
+
