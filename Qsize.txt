@@ -1,0 +1,5 @@
+template <class etype>
+int QueueArray<etype>::Qsize(int index){
+  return array[index].size();
+}
+
