@@ -27,7 +27,7 @@ class QueueArray
   public:
     QueueArray(int);
     ~QueueArray();
-  int Asize();
+    int Asize();
     etype Dequeue();
     int Enqueue(const etype &item,const int index);
     int QAsize(); 
@@ -55,7 +55,7 @@ QueueArray<etype>::QueueArray(int sz):size(sz),totalItems(0)
 
 template <class etype>
 int QueueArray<etype>::Asize(){
-      return size;
+  return size;
 }  
 
 template <class etype>
@@ -65,13 +65,59 @@ QueueArray<etype>::~QueueArray(){
 
 template <class etype>
 int QueueArray<etype>::Enqueue(const etype &item,const int index){
-    if (index > sizeof(array)-1 || index < 0 ){
-      return -1;} else {
+  if (index > sizeof(array)-1 || index < 0 ){
+    return -1;} else {
       array[index].push(item);
       return 1;
       }
-
-      return 0;
+    return 0;
 }
 
-//QueueArray::~QueueArray(){ delete [] array; }
+template <class etype>
+int QueueArray<etype>::Qsize(int index){
+  if(index < 0 || index > sizeof(array)-1){
+    return -1;} else {
+  return array[index].size();
+  }
+}
+
+template <class etype>
+int QueueArray<etype>::QAsize(){
+  int sum = 0;
+  for(int i = 0; i < Asize(); i++){
+    sum += Qsize(i);
+      }
+  return sum;
+}
+
+template <class etype>
+etype  QueueArray<etype>::Dequeue(){
+  for(int i=0;i<Asize(); i++){
+    if(Qsize(i)>0){
+     char temp =  array[i].front();
+     array[i].pop(); 
+     return temp;
+    }
+  }
+  return 0;
+}
+
+template <class etype>
+etype* QueueArray<etype>::Qstate(int index){
+  if(index < 0 || index > Asize()){
+    return NULL;
+  }else {
+    etype* ss = new etype[Qsize(index)];
+    for(int i = 0; i < Qsize(index); i++)
+      {
+	
+	ss[i] = array[index].front();
+	//  array[index].pop();
+      }
+   return ss;
+  } 
+}
+    
+  
+
+

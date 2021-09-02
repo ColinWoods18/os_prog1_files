@@ -1,11 +1,12 @@
 # Program #1
 
 Name:
+  Colin Woods
 
 How to compile:
-  makefile?
+  Makefile included in repository
 
 Anything not working:
-  It all works right?
+  Everything appears to be functioning.
 
 
