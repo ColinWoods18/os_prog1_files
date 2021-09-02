@@ -1,0 +1,12 @@
+template <class etype>
+etype  QueueArray<etype>::Dequeue(){
+  for(int i=0;i<Asize(); i++){
+    if(Qsize(i)>0){
+     char temp =  array[i].front();
+     array[i].pop(); 
+     return temp;
+    }
+  }
+  return 0;
+}
+
