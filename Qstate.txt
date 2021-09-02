@@ -1,0 +1,18 @@
+
+template <class etype>
+etype* QueueArray<etype>::Qstate(int index){
+  if(index < 0 || index > Asize()){
+    return NULL;
+  }else {
+    etype* ss = new etype[Qsize(index)];
+    for(int i = 0; i < Qsize(index); i++)
+      {
+	
+	ss[i] = array[index].front();
+	//  array[index].pop();
+      }
+   return ss;
+  } 
+}
+    
+  
