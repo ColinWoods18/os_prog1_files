@@ -107,12 +107,13 @@ etype* QueueArray<etype>::Qstate(int index){
   if(index < 0 || index > Asize()){
     return NULL;
   }else {
+    queue<etype> temp;
+    temp = array[index];
     etype* ss = new etype[Qsize(index)];
     for(int i = 0; i < Qsize(index); i++)
-      {
-	
-	ss[i] = array[index].front();
-	//  array[index].pop();
+      {	 
+      	 ss[i] = temp.front();
+      	 temp.pop();
       }
    return ss;
   } 
